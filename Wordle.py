@@ -10,6 +10,9 @@ import random
 from WordleDictionary import FIVE_LETTER_WORDS
 from WordleGraphics import WordleGWindow, N_COLS, N_ROWS
 
+random_word = random.choice(FIVE_LETTER_WORDS)
+
+
 def wordle():
 
     def enter_action(s):
@@ -17,7 +20,7 @@ def wordle():
 
     gw = WordleGWindow()
     gw.add_enter_listener(enter_action)
-
+print(random_word)
 # Startup code
 
 if __name__ == "__main__":
