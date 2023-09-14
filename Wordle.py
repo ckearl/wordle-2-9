@@ -29,9 +29,10 @@ def wordle():
 
         if word.lower() in FIVE_LETTER_WORDS:
             gw.show_message("That's a good word")
-        else: 
+        elif (word[-1]) == " ":
+            gw.show_message("Not enough letters")
+        else:
             gw.show_message("Not in word list")
-        
 
     
     gw = WordleGWindow()
