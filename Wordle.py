@@ -14,6 +14,8 @@ random_word = random.choice(FIVE_LETTER_WORDS)
 
 
 def wordle():
+    row = 0
+    col = 0
 
     def enter_action(s):  
         row = gw.get_current_row()
