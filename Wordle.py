@@ -40,12 +40,10 @@ def wordle():
                     gw.set_square_color(row,square, "#999999")
                 square = square+1
             gw.set_current_row(row+1)
-        else: 
-            gw.show_message("Not in word list")
-            # for x in range(N_COLS):
-            #     gw.set_square_letter(row,col," ")
-            #     col = col + 1
-        
+        elif (word[-1]) == " ":
+            gw.show_message("Not enough letters")
+        else:
+            gw.show_message("Not in word list")     
     
     gw = WordleGWindow()
     gw.add_enter_listener(enter_action)
