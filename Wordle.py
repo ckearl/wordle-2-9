@@ -39,6 +39,7 @@ def wordle():
         if word.lower() in FIVE_LETTER_WORDS:
             gw.show_message("That's a good word")
             square = 0
+            count = 0
             color_count = {}
 
             for x in range(N_COLS):
@@ -46,6 +47,7 @@ def wordle():
                 if letter.lower() == random_word[square]:
                     gw.set_square_color(row,square,"#66BB66")
                     color = "green"
+                    count = count + 1
                 elif letter.lower() in random_word:
                     gw.set_square_color(row,square, "#CCBB66")
                     color = "yellow"
@@ -71,11 +73,18 @@ def wordle():
 
                 square = square+1 
             
-            gw.set_current_row(row+1)
+
+            if count == 5:
+                gw.show_message("You Won!")
+            elif row == 5:
+                gw.show_message("You Lost") 
+            else:
+                gw.set_current_row(row+1)
+
         elif (word[-1]) == " ":
             gw.show_message("Not enough letters")
         else:
-            gw.show_message("Not in word list")     
+            gw.show_message("Not in word list")
     
     gw = WordleGWindow()
     gw.add_enter_listener(enter_action)
