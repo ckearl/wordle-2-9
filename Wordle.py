@@ -30,20 +30,29 @@ def wordle():
         if word.lower() in FIVE_LETTER_WORDS:
             gw.show_message("That's a good word")
             square = 0
+            count = 0
             for x in range(N_COLS):
                 letter = gw.get_square_letter(row,square)
                 if letter.lower() == random_word[square]:
                     gw.set_square_color(row,square,"#66BB66")
+                    count = count + 1
                 elif letter.lower() in random_word:
                     gw.set_square_color(row,square, "#CCBB66")
                 else:
                     gw.set_square_color(row,square, "#999999")
                 square = square+1
-            gw.set_current_row(row+1)
+
+            if count == 5:
+                gw.show_message("You Won!")
+            elif row == 5:
+                gw.show_message("You Lost") 
+            else:
+                gw.set_current_row(row+1)
+
         elif (word[-1]) == " ":
             gw.show_message("Not enough letters")
         else:
-            gw.show_message("Not in word list")     
+            gw.show_message("Not in word list")
     
     gw = WordleGWindow()
     gw.add_enter_listener(enter_action)
