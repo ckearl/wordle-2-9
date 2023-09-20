@@ -77,9 +77,11 @@ def wordle():
 
             if count == 5:
                 gw.show_message("You Won!")
-            elif row == 5:
+            elif row + 1 == N_ROWS:
                 gw.show_message("You Lost") 
+                gw.set_current_row(row+1)
             else:
+                print(row)
                 gw.set_current_row(row+1)
 
         elif (word[-1]) == " ":
