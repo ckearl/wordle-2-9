@@ -70,6 +70,7 @@ def wordle():
                         if gw.get_square_letter(row,col).lower() == letter and color_count[col] != "green":
                             gw.set_square_color(row,col, "#999999")
                         col = col+1
+                
 
                 square = square+1 
             
