@@ -100,7 +100,7 @@ class WordleGWindow:
                 ch = tke.upper()
             else:
                 ch = tke.char.upper()
-            if ch == "\007" or ch == "\177" or ch == "DELETE":
+            if ch == "\007" or ch == "\177" or ch == "\b" or ch == "DELETE":
                 self.show_message("")
                 if self._row < N_ROWS and self._col > 0:
                     self._col -= 1
@@ -205,6 +205,37 @@ class WordleGWindow:
     def show_message(self, msg, color="Black"):
         self._message.set_text(msg, color)
 
+    def share(self, guesses):
+
+        # Create a button
+        button = tkinter.Button(self._canvas, text="Share", command=self._pop_up)
+
+        # Add the button to the window
+        button.place(relx=.67,rely=.62,anchor=tkinter.CENTER)
+
+        self.guesses = guesses
+    
+    def _pop_up(self):
+        popup_window = tkinter.Toplevel(self._root)
+        popup_window.title("Share Results")
+
+        # Add a label to display the text inside the popup
+        text = self.guesses
+        # label = tkinter.Label(popup_window, text=text)
+        # label.pack()
+
+        for outer_key, inner_dict in text.items():
+            for inner_key, inner_value in inner_dict.items():
+                box = Box(popup_window, 20, 20,inner_value,outer_key,inner_key)
+
+        # Optionally, you can add a button to close the popup window
+        close_button = tkinter.Button(popup_window, text="Close", command=popup_window.destroy)
+        close_button.grid(row=8, column=5)
+
+class Box:
+    def __init__(self, parent, width, height, color, row, column):
+        self._canvas = tkinter.Canvas(parent, width=width, height=height, bg=color)
+        self._canvas.grid(row=row,column=column)
 
 class WordleSquare:
 

@@ -13,7 +13,7 @@ from WordleGraphics import WordleGWindow, N_COLS, N_ROWS
 random_word = random.choice(FIVE_LETTER_WORDS)
 
 letter_count = {}
-
+guesses = {}
 for letter in random_word:
     if letter in letter_count:
         letter_count[letter] += 1
@@ -58,7 +58,7 @@ def wordle():
                 color_count[square] = color
 
                 square = square+1      
-
+            
             print(color_count)
             square = 0
             for x in range(N_COLS):
@@ -88,9 +88,12 @@ def wordle():
                         col = col + 1                         
                 square = square+1 
             
+            guesses[row] = color_count
+            print(guesses)
 
             if count == 5:
                 gw.show_message("You Won!")
+                gw.share(guesses)
                 gw.set_current_row(7)
             elif row + 1 == N_ROWS:
                 gw.show_message("You Lost") 
