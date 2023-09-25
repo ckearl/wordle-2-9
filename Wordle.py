@@ -8,7 +8,10 @@ BE SURE TO UPDATE THIS COMMENT WHEN YOU WRITE THE CODE.
 import random
 
 from WordleDictionary import FIVE_LETTER_WORDS
-from WordleGraphics import WordleGWindow, N_COLS, N_ROWS
+from WordleGraphics import WordleGWindow, N_COLS, N_ROWS, CORRECT_COLOR, PRESENT_COLOR
+
+# CORRECT_COLOR = "#95A78D"
+# PRESENT_COLOR = "#BD897E"
 
 random_word = random.choice(FIVE_LETTER_WORDS)
 random_word = "yucky"
@@ -46,11 +49,11 @@ def wordle():
             for x in range(N_COLS):
                 letter = gw.get_square_letter(row,square)
                 if letter.lower() == random_word[square]:
-                    gw.set_square_color(row,square,"#66BB66")
+                    gw.set_square_color(row,square, CORRECT_COLOR)
                     color = "green"
                     count = count + 1
                 elif letter.lower() in random_word:
-                    gw.set_square_color(row,square, "#CCBB66")
+                    gw.set_square_color(row,square, PRESENT_COLOR)
                     color = "yellow"
                 else:
                     gw.set_square_color(row,square, "#999999")
