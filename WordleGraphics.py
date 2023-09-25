@@ -15,10 +15,10 @@ import tkinter
 N_ROWS = 6			# Number of rows
 N_COLS = 5			# Number of columns
 
-# CORRECT_COLOR = "#66BB66"       # OLD: Light green for correct letters
-CORRECT_COLOR = "#95A78D"       # Sage green for correct letters
-# PRESENT_COLOR = "#CCBB66"       # OLD: Brownish yellow for misplaced letters
-PRESENT_COLOR = "#BD897E"       # Dark, dusty red for misplaced letters
+# CORRECT_COLOR = "#66BB66"       # Light green for correct letters
+CORRECT_COLOR = "#95A78D"
+# PRESENT_COLOR = "#CCBB66"       # Brownish yellow for misplaced letters
+PRESENT_COLOR = "#BD897E"
 MISSING_COLOR = "#999999"       # Gray for letters that don't appear
 UNKNOWN_COLOR = "#FFFFFF"       # Undetermined letters are white
 KEY_COLOR = "#DDDDDD"           # Keys are colored light gray
