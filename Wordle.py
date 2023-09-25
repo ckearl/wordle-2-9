@@ -14,7 +14,7 @@ from WordleGraphics import WordleGWindow, N_COLS, N_ROWS, CORRECT_COLOR, PRESENT
 # PRESENT_COLOR = "#BD897E"
 
 random_word = random.choice(FIVE_LETTER_WORDS)
-random_word = "yucky"
+#random_word = "yucky"
 
 letter_count = {}
 guesses = {}
