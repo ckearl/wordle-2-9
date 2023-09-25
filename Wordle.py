@@ -11,6 +11,7 @@ from WordleDictionary import FIVE_LETTER_WORDS
 from WordleGraphics import WordleGWindow, N_COLS, N_ROWS
 
 random_word = random.choice(FIVE_LETTER_WORDS)
+random_word = "yucky"
 
 letter_count = {}
 guesses = {}
@@ -69,14 +70,17 @@ def wordle():
                         if gw.get_square_letter(row,col).lower() == letter and color_count[col] != "green":
                             gw.set_square_color(row,col, "#999999")
                             color_count[col] = "gray"
+                            print("test1")
                         col = col+1
-                
+            
+            for x in range(N_COLS):
                 if letter in letter_count and color_count[square] == "yellow":
                     col = 0
                     color_instance = 0
                     for t in range(N_COLS):
                         if gw.get_square_letter(row,col).lower() == letter and color_count[col] != "gray":
                             color_instance = color_instance + 1
+                            print("test2")
                         col = col + 1
                     print(color_instance)
 
@@ -84,7 +88,8 @@ def wordle():
                     while letter_count[letter] < color_instance:
                         if gw.get_square_letter(row,col).lower() == letter and color_count[col] == "yellow":  
                             gw.set_square_color(row,col, "#999999")
-                            color_instance = color_instance - 1        
+                            color_instance = color_instance - 1
+                            print("test3")        
                         col = col + 1                         
                 square = square+1 
             
