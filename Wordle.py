@@ -72,7 +72,7 @@ def wordle():
                     for t in range(N_COLS):
                         if gw.get_square_letter(row,col).lower() == letter and color_count[col] != "green":
                             gw.set_square_color(row,col, "#999999")
-                            color_count[col] = "gray"
+                            # color_count[col] = "gray"
                             print("test1")
                         col = col+1
             
@@ -92,6 +92,7 @@ def wordle():
                         if gw.get_square_letter(row,col).lower() == letter and color_count[col] == "yellow":  
                             gw.set_square_color(row,col, "#999999")
                             color_instance = color_instance - 1
+                            color_count[col] = "gray"
                             print("test3")        
                         col = col + 1                         
                 square = square+1 
